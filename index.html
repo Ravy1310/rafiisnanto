@@ -242,7 +242,7 @@
             outline: none;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .contact-form { padding: 1.5rem; margin: 0 1rem; }
             .section { padding: 6rem 1rem 2rem 1rem; }
             #chat-window { bottom: 6rem; right: 1rem; width: calc(100% - 2rem); }
@@ -255,18 +255,40 @@
     <canvas id="background-canvas"></canvas>
 
     <header class="fixed top-0 left-0 w-full z-50 p-4">
-        <div class="container mx-auto flex justify-center items-center relative bg-[var(--navbar-bg)] backdrop-blur-sm p-3 px-4 md:px-6 rounded-full border border-[var(--card-border)] transition-colors duration-500">
-            <a href="#home" class="absolute left-6 nav-link-header text-xl font-bold gradient-text">Rafi I.S.</a>
-            <nav class="desktop-nav flex items-center space-x-3 sm:space-x-4 md:space-x-6 text-[var(--text-color-muted)] text-sm">
+        <div class="container mx-auto flex justify-between items-center bg-[var(--navbar-bg)] backdrop-blur-sm p-3 px-6 rounded-full border border-[var(--card-border)] transition-colors duration-500">
+            <!-- Brand -->
+            <a href="#home" class="text-xl font-bold gradient-text">Rafi I.S.</a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 text-[var(--text-color-muted)] text-sm">
                 <a href="#home" class="nav-link nav-link-header transition-colors duration-300 hover:text-[var(--text-color)]">Home</a>
                 <a href="#about" class="nav-link nav-link-header transition-colors duration-300 hover:text-[var(--text-color)]">About</a>
                 <a href="#skills" class="nav-link nav-link-header transition-colors duration-300 hover:text-[var(--text-color)]">Skills</a>
                 <a href="#projects" class="nav-link nav-link-header transition-colors duration-300 hover:text-[var(--text-color)]">Projects</a>
                 <a href="#contact" class="nav-link nav-link-header transition-colors duration-300 hover:text-[var(--text-color)]">Contact</a>
             </nav>
-            <button id="theme-toggle" class="absolute right-6 w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors flex-shrink-0">
-                <i id="theme-icon" class="fas fa-moon"></i>
-            </button>
+
+            <!-- Right side container for icons -->
+            <div class="flex items-center gap-2">
+                 <!-- Theme Toggle -->
+                <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors flex-shrink-0">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+                <!-- Burger Button -->
+                <button id="mobile-menu-button" class="md:hidden text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+                    <i id="mobile-menu-icon" class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden container mx-auto mt-2 md:hidden">
+            <div class="bg-[var(--card-bg)] backdrop-blur-sm border border-[var(--card-border)] rounded-2xl p-2">
+                 <a href="#home" class="nav-link-mobile block py-3 px-4 text-center text-base text-[var(--text-color-muted)] hover:text-[var(--text-color)] rounded-lg hover:bg-white/5">Home</a>
+                 <a href="#about" class="nav-link-mobile block py-3 px-4 text-center text-base text-[var(--text-color-muted)] hover:text-[var(--text-color)] rounded-lg hover:bg-white/5">About</a>
+                 <a href="#skills" class="nav-link-mobile block py-3 px-4 text-center text-base text-[var(--text-color-muted)] hover:text-[var(--text-color)] rounded-lg hover:bg-white/5">Skills</a>
+                 <a href="#projects" class="nav-link-mobile block py-3 px-4 text-center text-base text-[var(--text-color-muted)] hover:text-[var(--text-color)] rounded-lg hover:bg-white/5">Projects</a>
+                 <a href="#contact" class="nav-link-mobile block py-3 px-4 text-center text-base text-[var(--text-color-muted)] hover:text-[var(--text-color)] rounded-lg hover:bg-white/5">Contact</a>
+            </div>
         </div>
     </header>
     
@@ -306,28 +328,36 @@
         
         <!-- Skills Section -->
         <section id="skills" class="section">
-             <div class="container mx-auto text-center">
+             <div class="container mx-auto text-center w-full">
                 <h2 class="gsap-reveal-title text-3xl md:text-4xl font-bold mb-12">Keahlian Saya</h2>
-                <div class="max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-8">
-                    <div class="card skill-item rounded-2xl p-6 flex flex-col items-center justify-center gap-y-4 w-40 h-40">
-                        <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5" class="w-14 h-14">
-                        <span class="font-semibold text-lg">HTML5</span>
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">HTML5</span>
                     </div>
-                    <div class="card skill-item rounded-2xl p-6 flex flex-col items-center justify-center gap-y-4 w-40 h-40">
-                        <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="CSS3" class="w-14 h-14">
-                        <span class="font-semibold text-lg">CSS3</span>
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="CSS3" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">CSS3</span>
                     </div>
-                    <div class="card skill-item rounded-2xl p-6 flex flex-col items-center justify-center gap-y-4 w-40 h-40">
-                        <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript" class="w-14 h-14">
-                        <span class="font-semibold text-lg">JavaScript</span>
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">JavaScript</span>
                     </div>
-                    <div class="card skill-item rounded-2xl p-6 flex flex-col items-center justify-center gap-y-4 w-40 h-40">
-                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" class="w-14 h-14">
-                        <span class="font-semibold text-lg">Tailwind CSS</span>
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">Tailwind CSS</span>
                     </div>
-                    <div class="card skill-item rounded-2xl p-6 flex flex-col items-center justify-center gap-y-4 w-40 h-40">
-                        <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" class="w-14 h-14">
-                        <span class="font-semibold text-lg">Figma</span>
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">Figma</span>
+                    </div>
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">Java</span>
+                    </div>
+                    <div class="card skill-item rounded-2xl p-4 flex flex-col items-center justify-center gap-y-2 w-36 h-36 md:w-60 md:h-60 md:p-6 md:gap-y-4">
+                        <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL" class="w-16 h-16 md:w-32 md:h-32">
+                        <span class="font-semibold text-base md:text-xl">MySQL</span>
                     </div>
                 </div>
              </div>
@@ -337,49 +367,23 @@
         <section id="projects" class="section">
              <div class="container mx-auto text-center">
                 <h2 class="gsap-reveal-title text-3xl md:text-4xl font-bold mb-12">Proyek Saya</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card project-card rounded-xl overflow-hidden">
-                        <img src="https://placehold.co/600x400/0f172a/94a3b8?text=Platform+E-commerce" alt="Project E-commerce" class="w-full h-48 object-cover">
-                        <div class="p-6 text-left">
-                            <h3 class="text-xl font-bold mb-2 text-[var(--accent-color)]">Platform E-commerce</h3>
-                            <p class="text-[var(--text-color-muted)] mb-4">Platform belanja online dengan fitur lengkap.</p>
-                            <div class="flex gap-3">
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-[var(--accent-color)] text-slate-900 dark:text-white px-4 py-2 rounded-md hover:brightness-90 transition-all text-sm">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Demo
-                                </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 text-[var(--text-color)] px-4 py-2 rounded-md hover:bg-white/20 transition-colors text-sm">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card project-card rounded-xl overflow-hidden">
-                        <img src="https://placehold.co/600x400/0f172a/94a3b8?text=Aplikasi+Manajemen+Tugas" alt="Project To-Do App" class="w-full h-48 object-cover">
-                         <div class="p-6 text-left">
-                            <h3 class="text-xl font-bold mb-2 text-[var(--accent-color)]">Aplikasi Manajemen Tugas</h3>
-                            <p class="text-[var(--text-color-muted)] mb-4">Aplikasi untuk produktivitas dan manajemen tugas harian.</p>
-                            <div class="flex gap-3">
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-[var(--accent-color)] text-slate-900 dark:text-white px-4 py-2 rounded-md hover:brightness-90 transition-all text-sm">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Demo
-                                </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 text-[var(--text-color)] px-4 py-2 rounded-md hover:bg-white/20 transition-colors text-sm">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card project-card rounded-xl overflow-hidden">
-                        <img src="https://placehold.co/600x400/0f172a/94a3b8?text=Dashboard+Cuaca" alt="Project Weather App" class="w-full h-48 object-cover">
-                         <div class="p-6 text-left">
-                            <h3 class="text-xl font-bold mb-2 text-[var(--accent-color)]">Dashboard Cuaca</h3>
-                            <p class="text-[var(--text-color-muted)] mb-4">Visualisasi data cuaca real-time dari berbagai kota.</p>
-                            <div class="flex gap-3">
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-[var(--accent-color)] text-slate-900 dark:text-white px-4 py-2 rounded-md hover:brightness-90 transition-all text-sm">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Demo
-                                </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 text-[var(--text-color)] px-4 py-2 rounded-md hover:bg-white/20 transition-colors text-sm">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a>
+                <!-- Container for reveal animation -->
+                <div class="project-grid-container">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <div class="card project-card rounded-xl overflow-hidden">
+                            <img src="https://placehold.co/600x400/0f172a/94a3b8?text=Aplikasi+Manajemen+Tugas" alt="Project To-Do App" class="w-full h-48 object-cover">
+                             <div class="p-6 text-left">
+                                <h3 class="text-xl font-bold mb-2 text-[var(--accent-color)]">Aplikasi Manajemen Tugas</h3>
+                                <p class="text-[var(--text-color-muted)] mb-4">Aplikasi untuk produktivitas dan manajemen tugas harian.</p>
+                                <div class="flex gap-3">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-[var(--accent-color)] text-slate-900 dark:text-white px-4 py-2 rounded-md hover:brightness-90 transition-all text-sm">
+                                        <i class="fas fa-external-link-alt mr-2"></i>Demo
+                                    </a>
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 text-[var(--text-color)] px-4 py-2 rounded-md hover:bg-white/20 transition-colors text-sm">
+                                        <i class="fab fa-github mr-2"></i>Code
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -454,11 +458,20 @@
             </button>
         </form>
     </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center hidden z-[1001] p-4">
+        <div class="bg-[var(--card-bg)] p-8 rounded-2xl text-center max-w-sm w-full shadow-2xl border border-[var(--card-border)]">
+            <p id="modal-message" class="text-lg"></p>
+            <button id="modal-close-btn" class="mt-6 bg-[var(--accent-color)] text-white px-6 py-2 rounded-full font-semibold hover:brightness-90 transition">Tutup</button>
+        </div>
+    </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -471,7 +484,6 @@
         const applyTheme = (theme) => {
             body.dataset.theme = theme;
             localStorage.setItem('theme', theme);
-            // Toggle tailwind dark class
             if (theme === 'dark') {
                 document.documentElement.classList.add('dark');
             } else {
@@ -486,7 +498,22 @@
             applyTheme(body.dataset.theme === 'dark' ? 'light' : 'dark');
         });
         
-        // --- Smooth Nav Scrolling ---
+        // --- Smooth Nav Scrolling & Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            }
+        });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -494,7 +521,15 @@
                 e.preventDefault();
                 const targetSection = document.querySelector(targetId);
                 if (!targetSection) return;
-                const navbarHeight = document.querySelector('header').offsetHeight;
+
+                // Close mobile menu if it's open and a link is clicked
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('fa-times');
+                    mobileMenuIcon.classList.add('fa-bars');
+                }
+                
+                const navbarHeight = document.querySelector('header > div').offsetHeight;
                 const targetPosition = targetId === '#home' ? 0 : targetSection.offsetTop - navbarHeight;
                 gsap.to(window, { duration: 0.7, scrollTo: { y: targetPosition, autoKill: false }, ease: "power3.inOut" });
             });
@@ -615,7 +650,7 @@
                 
                 if (crystal) {
                     if (isInteracting) {
-                         // When interacting, smoothly move towards the mouse position
+                        // When interacting, smoothly move towards the mouse position
                         gsap.to(crystal.rotation, {
                             x: -mousePos.y * 0.4,
                             y: mousePos.x * 0.4,
@@ -682,28 +717,94 @@
             opacity: 0, x: 50, duration: 1, ease: 'power3.out' 
         });
         
-        // Skills Section Animation
-        gsap.from('.skill-item', { 
-            scrollTrigger: { trigger: '#skills', start: 'top 80%', toggleActions: 'play none none reverse' }, 
-            opacity: 0, y: 40, stagger: 0.1, duration: 0.7, ease: 'power3.out' 
+        // --- [FINAL FIX] Animation for Skills Section ---
+        gsap.from(".skill-item", {
+            scrollTrigger: {
+                trigger: "#skills",
+                start: "top 80%",
+                toggleActions: "play none none reverse",
+            },
+            duration: 0.5,
+            opacity: 0,
+            scale: 0.5,
+            ease: "power2.out",
+            stagger: {
+                amount: 0.4,
+                from: "center",
+            }
         });
         
-        // Projects Section Animation
-        gsap.from('.project-card', { 
-            scrollTrigger: { trigger: '#projects', start: 'top 80%', toggleActions: 'play none none reverse' }, 
-            opacity: 0, y: 40, stagger: 0.15, duration: 0.8, ease: 'power3.out' 
+        // --- [FINAL FIX] Animation for Projects Section ---
+        gsap.from(".project-card", {
+            scrollTrigger: {
+                trigger: ".project-grid-container",
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            },
+            duration: 0.7,
+            opacity: 0,
+            y: 50,
+            ease: "power3.out",
+            stagger: 0.15
         });
         
-        // Contact Form Animation
-        gsap.from('.contact-form', {
-            scrollTrigger: { trigger: '.contact-wrapper', start: 'top 80%', toggleActions: 'play none none reverse' },
-            y: 50, opacity: 0, duration: 0.8, ease: 'power2.out'
+        // --- Contact Form & EmailJS Logic ---
+        const contactForm = document.getElementById('contact-form');
+        const modal = document.getElementById('feedback-modal');
+        const modalMessage = document.getElementById('modal-message');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        // Inisialisasi EmailJS dengan Public Key Anda
+        (function() {
+            // Ganti dengan Public Key Anda dari EmailJS -> Account -> API Keys
+            emailjs.init({
+              publicKey: 'yOnP1LuCKA4_QVgXB', 
+            });
+        })();
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Ganti dengan Service ID dan Template ID Anda dari EmailJS
+            const serviceID = 'service_4ucswyj';
+            const templateID = 'template_gmlm983';
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            // Tampilkan status loading pada tombol
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...';
+
+            emailjs.send(serviceID, templateID, {
+                from_name: document.getElementById('contact-name').value,
+                from_email: document.getElementById('contact-email').value,
+                subject: document.getElementById('contact-subject').value,
+                message: document.getElementById('contact-message').value,
+            })
+            .then(() => {
+                contactForm.reset();
+                showModal('Pesan Anda telah berhasil terkirim! Terima kasih.');
+            }, (err) => {
+                console.error('Gagal mengirim email. Error: ', err);
+                showModal('Maaf, terjadi kesalahan saat mengirim pesan. Coba lagi nanti.');
+            })
+            .finally(() => {
+                // Kembalikan tombol ke keadaan semula
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+            });
         });
-        
-        gsap.from('.gsap-reveal-form-item', { 
-            scrollTrigger: { trigger: '.contact-form', start: 'top 90%', toggleActions: 'play none none reverse' }, 
-            y: 30, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out' 
+
+        function showModal(message) {
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+        }
+
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
         });
+
 
         // --- Chatbot Logic ---
         const chatLauncher = document.getElementById('chat-launcher');
@@ -736,13 +837,13 @@
         const getBotResponse = async () => {
             const typingIndicator = addTypingIndicator();
             try {
-                const payload = {
-                    contents: chatHistory,
-                    system_instruction: { parts: [{ text: personaPrompt }] },
-                };
+                const apiKey = "" // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
                 
-                const apiKey = "AIzaSyAC_7nBtJFbE_D2tiGQH5UtOAxLaWSbWr0"; 
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+                const payload = {
+                  contents: chatHistory,
+                  system_instruction: { parts: [{ text: personaPrompt }] },
+                };
                 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
